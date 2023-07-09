@@ -48,18 +48,19 @@ const HouseContextProvider = ({ children }) => {
     const isDefault = (str) => {
       return str.split(' ').includes('(any)');
     };
-
+    // console.log(price.replace(/\$/g, '').replace(/\k/g,'').replace(' ','').split('- '))
+    const cleanPrice=price.replace(/\$/g, '').replace(/\k/g,'')
     // get first string (price) and parse it to number
-    const minPrice = parseInt(price.split(' ')[0]);
+    const minPrice = parseInt(cleanPrice.split(' ')[0]);
     // get last string (price) and parse it to number
-    const maxPrice = parseInt(price.split(' ')[2]);
+    const maxPrice = parseInt(cleanPrice.split(' ')[2]);
 
     const newHouses = housesData.filter((house) => {
       const housePrice = parseInt(house.price);
       // all values are selected
       if (
-        house.country === country &&
-        house.type === property &&
+        [house.country,'Location (any)'].includes(country) &&
+        [house.type,'Property type (any)'].includes(property) &&
         housePrice >= minPrice &&
         housePrice <= maxPrice
       ) {

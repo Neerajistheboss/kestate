@@ -96,9 +96,9 @@ const PropertyDetails = () => {
               >
                 Send message
               </button>
-              <button className="border border-teal-700 text-teal-700 hover:border-purple-600 hover:text-purple-600 rounded p-4 text-sm w-full transition">
+              {/* <button className="border border-teal-700 text-teal-700 hover:border-purple-600 hover:text-purple-600 rounded p-4 text-sm w-full transition">
                 Call
-              </button>
+              </button> */}
             </div>
           </form>
         </div>
